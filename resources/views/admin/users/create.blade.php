@@ -5,6 +5,15 @@
     <h1>Create Users</h1>
     {{--<form action="/lpractice001/public/posts" method="POST">--}}
 
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         {!! Form::Open(['method'=>'POST', 'action'=>'AdminUsersController@store','files'=>true]) !!}
 
             {{--{{csrf_field()}}--}}
@@ -38,17 +47,8 @@
                 </div>
 
                 <div class="form-group">
-                    {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}
+                    {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
                 </div>
         {!! Form::Close() !!}
 
-        @if(count($errors) > 0)
-            <div class="alert alert-danger">
-               <ul>
-                  @foreach($errors->all() as $error)
-                     <li>{{$error}}</li>
-                  @endforeach
-               </ul>
-           </div>
-        @endif
 @stop
