@@ -11,9 +11,14 @@ class Photo extends Model
         'file'
     ];
 
-    protected $uploads = '/laravel_project01/public/images/';
-
-    public function getFileAttribute($photo)    {
-        return $this->uploads .$photo;
-    }
+        /*
+        =========================================================================
+                To minimize the Directory in showing Images in Index pages
+        =========================================================================
+                protected $uploads = '/laravel_project01/public/images/';
+                    public function getFileAttribute($photo)    {
+                    return $this->uploads .$photo;
+              }
+        =========================================================================
+        */
 }

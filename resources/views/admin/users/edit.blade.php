@@ -17,7 +17,7 @@
     </div>
     <div class="row">
         <div class="col-sm-3">
-            <img src="{{$user->photo? $user->photo->file : 'http://via.placeholder.com/400'}}" alt="" class="img-responsive img-rounded">
+            <img src="/laravel_project01/public/images/{{$user->photo? $user->photo->file : 'http://via.placeholder.com/400'}}" alt="" class="img-responsive img-rounded">
         </div>
 
         <div class="col-sm-9">
@@ -54,10 +54,21 @@
             </div>
 
             <div class="form-group">
-                {!! Form::submit('Update User', ['class'=>'btn btn-primary']) !!}
+                {!! Form::submit('Update User', ['class'=>'btn btn-primary col-sm-6']) !!}
             </div>
+            {!! Form::Close() !!}
+
+                                            {{--Delete User--}}
+            {{--<form action="/lpractice001/public/posts" method="POST">--}}
+
+            {!! Form::Open(['method'=>'DELETE', 'action'=>['AdminUsersController@destroy',$user->id]]) !!}
+            <div class="form-group">
+                {!! Form::submit('Delete User', ['class'=>'btn btn-danger col-sm-6']) !!}
+            </div>
+            {!! Form::Close() !!}
+
         </div>
-        {!! Form::Close() !!}
+
     </div>
 
 @stop
