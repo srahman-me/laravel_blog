@@ -3,6 +3,9 @@
 
 @section('content')
 
+    @if(Session::has('deleted_post'))
+        <h2 class="bg-danger">{{Session('deleted_post')}}</h2>
+    @endif
     <h1>Posts</h1>
 
     <table class="table table-condensed">
@@ -26,9 +29,9 @@
                     <td>{{$post->id}}</td>
                     <td><img height="50" width="100" src="/laravel_project01/public/images/{{$post->photo ? $post->photo->file : 'https://via.placeholder.com/150'}}" alt=""></td>
                     <td>{{$post->user->name}}</td>
-                    <td>{{$post->title}}</td>
-                    <td>{{$post->category_id}}</td>
-                    <td>{{$post->body}}</td>
+                    <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->title}}</a></td>
+                    <td>{{$post->category_id ? $post->category->name : 'Uncategorized'}}</td>
+                    <td>{{str_limit($post->body, 15)}}</td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
                 </tr>
