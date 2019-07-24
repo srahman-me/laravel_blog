@@ -25,7 +25,8 @@
                 <div class="form-group">
                    {!! Form::label('email', 'Email') !!}
                    {!! Form::email('email',null, ['class'=>'form-control']) !!}
-                            </div>
+                </div>
+
                 <div class="form-group">
                     {!! Form::label('role_id', 'Role') !!}
                     {!! Form::select('role_id',[''=>'Choose Role']+$roles,null, ['class'=>'form-control']) !!}
