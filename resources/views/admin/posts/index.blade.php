@@ -17,9 +17,10 @@
             <th>Post Title</th>
             <th>Category Id</th>
             <th>Post Body</th>
+            <th>View Post</th>
+            <th>View Comments</th>
             <th>Created At</th>
             <th>Updated At</th>
-
         </tr>
         </thead>
         <tbody>
@@ -32,6 +33,8 @@
                     <td><a href="{{route('admin.posts.edit', $post->id)}}">{{$post->title}}</a></td>
                     <td>{{$post->category_id ? $post->category->name : 'Uncategorized'}}</td>
                     <td>{{str_limit($post->body, 15)}}</td>
+                    <td><a href="{{route('home.post',$post->id)}}">View Post</a></td>
+                    <td><a href="{{route('admin.comments.show',$post->id)}}">View Comments</a></td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
                 </tr>

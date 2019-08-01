@@ -65,10 +65,11 @@
             <div class="form-group">
                 {!! Form::submit('Delete User', ['class'=>'btn btn-danger col-sm-6']) !!}
             </div>
+
+            <br>
             {!! Form::Close() !!}
 
         </div>
-
     </div>
 
 @stop
