@@ -40,7 +40,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/home') }}">
-                    Laravel
+                    Blog-Home
                 </a>
             </div>
 

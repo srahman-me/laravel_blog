@@ -32,7 +32,7 @@ class AdminUsersController extends Controller
     public function create()
     {
         //
-        $roles = Role::lists('name', 'id')->all();
+        $roles = Role::pluck('name', 'id')->all();
         return view('admin.users.create', compact('roles'));
     }
 
@@ -86,7 +86,7 @@ class AdminUsersController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        $roles = Role::lists('name', 'id')->all();
+        $roles = Role::pluck('name', 'id')->all();
         return view('admin.users.edit', compact('user','roles'));
     }
 
@@ -132,7 +132,11 @@ class AdminUsersController extends Controller
     {
         //
         $user = User::findOrFail($id);
-        unlink(public_path().'/images/' .$user->photo->file);
+
+        if(file_exists('public_path().\'/images/\' .$user->photo->file')){
+            @unlink('public_path().\'/images/\' .$user->photo->file');
+        }
+//        unlink(public_path().'/images/' .$user->photo->file);
         $user->delete();
         Session::flash('deleted_user', 'User has been deleted');
         return redirect('/admin/users');

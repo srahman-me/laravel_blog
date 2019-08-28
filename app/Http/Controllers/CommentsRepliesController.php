@@ -53,7 +53,7 @@ class CommentsRepliesController extends Controller
             'body'=>$request->body
         ];
         CommentReply::create($data);
-        $request->Session()->flash('reply_message','Your reply has been submitted');
+        $request->Session()->flash('reply_message','Your reply has been submitted and waiting for Approval');
         return redirect()->back();
     }
 

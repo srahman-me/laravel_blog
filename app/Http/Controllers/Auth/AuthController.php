@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -52,6 +51,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'role_id'=>'required',
         ]);
     }
 
@@ -67,6 +67,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'role_id'=>$data['role_id'],
         ]);
     }
 }

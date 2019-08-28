@@ -52,7 +52,7 @@ class PostCommentsController extends Controller
         ];
         Comment::create($data);
 
-        $request->Session()->flash('comment_message','Your comment has been submitted');
+        $request->Session()->flash('comment_message','Your comment has been submitted and waiting for Approval');
         return redirect()->back();
     }
 
